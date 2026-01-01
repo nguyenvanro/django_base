@@ -14,6 +14,17 @@ if not SECRET_KEY:
     raise ValueError("The SECRET_KEY environment variable must be set.")
 
 
+LOCAL_APPS = [
+    "apps.users.apps.UsersConfig",
+]
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "corsheaders",
+    "django_filters",
+]
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -22,6 +33,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    *LOCAL_APPS,
+    *THIRD_PARTY_APPS,
 ]
 
 MIDDLEWARE = [
@@ -90,3 +103,5 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.User"
