@@ -23,6 +23,6 @@ def custom_exception_handler(exc, context):
         "status": response.status_code,
         "message": message,
         "errors": raw_data,
-    }          
+    }
 
     return response
