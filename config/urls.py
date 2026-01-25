@@ -25,6 +25,7 @@ from drf_yasg import openapi
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include("django_prometheus.urls")),
 
     path("api/v1/", include("api.v1.urls")),
 ]
